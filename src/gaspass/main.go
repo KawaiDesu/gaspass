@@ -2,7 +2,7 @@ package gaspass
 
 import (
 	"encoding/binary"
-	"error"
+	"errors"
 	"golang.org/x/crypto/argon2"
 )
 
@@ -27,35 +27,36 @@ type Params struct {
 	PassLength  uint32
 	UseLower    bool
 	UseUpper    bool
-	UseNumber   bool
+	UseNumbers   bool
 	UseSpecials bool
 }
 
-func (p *Params) GeneratePassword() (string, error) {
+func (p *Params) GeneratePassword() (*string, error) {
 	// TODO: Check PassLength <= MAX_UINT32/8
+	var charSet string
 
-	if !(g.UseLower && p.UseUpper && p.UseNumbers && p.UseSpecials) {
-		return nil, error.New("Use at least one character group.") // CHECK ERROR DECLARATION
+	if !(p.UseLower && p.UseUpper && p.UseNumbers && p.UseSpecials) {
+		return nil, errors.New("Use at least one character group.")
 	}
 	if p.UseLower {
-		charSet += charsLower
+		charSet += CharsLower
 	}
 	if p.UseUpper {
-		charSet += charsUpper
+		charSet += CharsUpper
 	}
 	if p.UseNumbers {
-		charSet += charsNumbers
+		charSet += CharsNumbers
 	}
 	if p.UseSpecials {
-		charSet += charsSpecials
+		charSet += CharsSpecials
 	}
 
-	dkey := argon2.IDKey(p.PrivKey, append(p.Counter, p.Salt), argonIters, argonMemory, argonThreads, p.PassLength*8)
+	dkey := argon2.IDKey(p.PrivKey, append(p.Counter, p.Salt...), argonIters, argonMemory, argonThreads, p.PassLength*8)
 
 	password := ""
 	for cn := 0; cn < len(dkey); cn += 8 {
 		password += string(charSet[binary.BigEndian.Uint64(dkey[cn:cn+8])%uint64(len(charSet))])
 	}
 
-	return password, nil
+	return &password, nil
 }

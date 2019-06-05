@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/KawaiDesu/gaspass/gaspass"
+	"github.com/KawaiDesu/gaspass/src/gaspass"
 	"github.com/chzyer/readline"
 	flags "github.com/jessevdk/go-flags"
 	"os"
