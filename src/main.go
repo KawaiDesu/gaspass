@@ -24,9 +24,9 @@ func processFlags() {
 		os.Exit(1)
 	}
 
-//    if ! opts.CharsLower && ! opts.CharsUpper && ! opts.CharsNumbers && ! opts.CharsSpecials {
-//		opts.CharsLower, opts.CharsUpper, opts.CharsNumbers, opts.CharsSpecials = true, true, true, true
-//	}
+    if ! opts.CharsLower && ! opts.CharsUpper && ! opts.CharsNumbers && ! opts.CharsSpecials {
+		opts.CharsLower, opts.CharsUpper, opts.CharsNumbers, opts.CharsSpecials = true, true, true, true
+	}
 
 
 }
