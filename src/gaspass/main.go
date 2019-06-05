@@ -2,7 +2,6 @@ package gaspass
 
 import (
 	"encoding/binary"
-	"error"
 	"golang.org/x/crypto/argon2"
 )
 
