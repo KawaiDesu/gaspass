@@ -10,9 +10,9 @@ Working principle is the same as [lesspass](https://github.com/lesspass/lesspass
 Generally yes, but it highly dependent on private key quality and protection
 
 ## ToDo
-[] More tests
-[] Better README.md
-[] Travis CI
-[] SECURITY.md
-[] Resource management
-[] GUI
+[] More tests  
+[] Better README.md  
+[] Travis CI  
+[] SECURITY.md  
+[] Resource management  
+[] GUI  
