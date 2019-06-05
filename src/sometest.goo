@@ -1,0 +1,11 @@
+package gaspass
+/*
+import "fmt"
+
+func ExampleGeneratePassword(){
+	fmt.Println(GeneratePassword([]byte("asdfghjkl123")))
+	// Output:
+	// `wPW`9'Ep$JH,@:7
+
+}
+*/
