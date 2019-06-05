@@ -24,6 +24,11 @@ func processFlags() {
 		os.Exit(1)
 	}
 
+//    if ! opts.CharsLower && ! opts.CharsUpper && ! opts.CharsNumbers && ! opts.CharsSpecials {
+//		opts.CharsLower, opts.CharsUpper, opts.CharsNumbers, opts.CharsSpecials = true, true, true, true
+//	}
+
+
 }
 
 var (
@@ -32,17 +37,17 @@ var (
 		CharsUpper    bool   `short:"u" long:"upper" description:"Use upper-case characters for generating password"`
 		CharsNumbers  bool   `short:"n" long:"numeric" description:"Use numeric characters for generating password"`
 		CharsSpecials bool   `short:"s" long:"specials" description:"Use speacial (punctuation) characters for generating password"`
-		Length        int    `short:"q" long:"quantity" default:"16" description:"Set number of characters in the password"`
+		Length        uint32 `short:"q" long:"quantity" default:"16" description:"Set number of characters in the password"`
 		Salt          string `short:"r" long:"resource" description:"Resource name (url or some descriptive text) for which password will be generated"`
 		Counter       string `short:"c" long:"counter" default:"0" description:"Serial number of the password for the same resource"`
+/*      // Not implemented yet
 		ActionAdd     bool   `short:"A" long:"add" description:"Add resource record to the database"`
 		ActionRemove  bool   `short:"D" long:"delete" description:"Remove resource record from the database"`
 		ActionUseRes  bool   `short:"R" long:"use-resource" description:"Use existing resource"`
 		ActionList    bool   `short:"L" long:"list" description:"List resource records in the database"`
 		ActionBench   bool   `short:"B" long:"bench" description:"Run benchmark"`
+*/
 	}
-
-	charSet string = ""
 )
 
 func main() {
@@ -55,6 +60,7 @@ func main() {
 		os.Exit(1)
 	}
 
+
 	p := gaspass.Params{
 		PrivKey:     privKey,
 		Salt:        []byte(opts.Salt),
@@ -62,7 +68,7 @@ func main() {
 		PassLength:  opts.Length,
 		UseLower:    opts.CharsLower,
 		UseUpper:    opts.CharsUpper,
-		UseNumber:   opts.CharsNumbers,
+		UseNumbers:  opts.CharsNumbers,
 		UseSpecials: opts.CharsSpecials,
 	}
 
@@ -71,5 +77,5 @@ func main() {
 		println(err.Error())
 		os.Exit(1)
 	}
-	fmt.Println(resultPass)
+	fmt.Println(*resultPass)
 }

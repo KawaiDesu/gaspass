@@ -35,7 +35,7 @@ func (p *Params) GeneratePassword() (*string, error) {
 	// TODO: Check PassLength <= MAX_UINT32/8
 	var charSet string
 
-	if !(p.UseLower && p.UseUpper && p.UseNumbers && p.UseSpecials) {
+	if ! (p.UseLower || p.UseUpper || p.UseNumbers || p.UseSpecials) {
 		return nil, errors.New("Use at least one character group.")
 	}
 	if p.UseLower {
