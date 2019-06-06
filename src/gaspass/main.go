@@ -16,7 +16,7 @@ const (
 
 const (
 	argonMemory  uint32 = 128 * 1024 // KiB
-	argonIters   uint32 = 24
+	argonIters   uint32 = 8
 	argonThreads uint8  = 3
 )
 

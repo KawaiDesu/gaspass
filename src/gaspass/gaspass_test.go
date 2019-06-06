@@ -22,7 +22,6 @@ func ExampleGeneratePassword(){
 
 	fmt.Println(*password)
 	// Output:
-	// `wPW`9'Ep$JH,@:7
-
+	// Esq8)G5q|NqXqt$T
 }
 
