@@ -7,12 +7,12 @@ Gaspass is more a password generator than password manager. Every run you will g
 Working principle is the same as [lesspass](https://github.com/lesspass/lesspass), but gaspass uses modern [argon2id](https://en.wikipedia.org/wiki/Argon2) KDF (key derivation function) instead of PBKDF2-SHA1.
 
 ## Is it secure?
-Generally yes, but it highly dependent on private key quality and protection
+Generally yes, but it highly depends on private key quality and protection
 
 ## ToDo
-[] More tests  
-[] Better README.md  
-[] Travis CI  
-[] SECURITY.md  
-[] Resource management  
-[] GUI  
+- More tests  
+- Better README.md  
+- Travis CI  
+- SECURITY.md  
+- Resource management  
+- GUI  
