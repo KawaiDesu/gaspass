@@ -1,5 +1,5 @@
 # gaspass
-Store passwords without actually storing them
+Manage passwords without storing them.
 
 ## How does it work?
 Use one password for access all other passwords, but unlike password managers (like Keepass family) this tool does not store them on disk or in memory at all.  
